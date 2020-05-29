@@ -267,7 +267,7 @@ func (r *Runner) Chartify(release, dirOrChart string, opts ...ChartifyOption) (s
 				ValuesFiles:  u.ValuesFiles,
 				ChartVersion: u.ChartVersion,
 			}
-			generated, err := r.ReplaceWithRendered(release, tempDir, templateFiles, templateOptions)
+			generated, err := r.ReplaceWithRendered(release, tempDir, append(templateFiles, matches...), templateOptions)
 			if err != nil {
 				return "", err
 			}
